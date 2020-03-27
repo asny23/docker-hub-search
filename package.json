@@ -1,14 +1,14 @@
 {
-  "name": "npm-package-search",
-  "version": "1.0.3",
-  "description": "To use, type 'npm' plus your search term into the url bar.",
+  "name": "docker-hub-search",
+  "version": "1.0.0",
+  "description": "To use, type 'docker' plus your search term into the url bar.",
   "main": "extension/background.js",
-  "repository": "https://github.com/clarkbw/npm-package-search.git",
+  "repository": "https://github.com/asny23/docker-hub-search.git",
   "bugs": {
-    "url": "https://github.com/clarkbw/npm-package-search/issues"
+    "url": "https://github.com/asny23/docker-hub-search/issues"
   },
-  "homepage": "https://github.com/clarkbw/npm-package-search",
-  "author": "Bryan Clark <clarkbw@gmail.com> (http://twitter.com/clarkbw)",
+  "homepage": "https://github.com/asny23/docker-hub-search",
+  "author": "Yun Asny23 <asny23+github@gmail.com>",
   "license": "MPL-2.0",
   "devDependencies": {
     "babel-core": "^6.24.0",
