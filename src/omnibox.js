@@ -1,12 +1,14 @@
-const BASE_URL = `https://registry.npmjs.org`;
-const MAX_RESULTS = 5;
-export const SEARCH_API_URL = `${BASE_URL}/-/v1/search/?size=${MAX_RESULTS}&text=`;
-export const SEARCH_DEFAULT_URL = `https://www.npmjs.com/search?q=`;
+// const BASE_URL = `https://registry.hub.docker.com/`;
+export const SITE_URL = `https://hub.docker.com`;
+const REGISTRY_URL = `https://registry.hub.docker.com`;
+const MAX_RESULTS = 4;
+export const SEARCH_API_URL = `${REGISTRY_URL}/v1/search?q=`;
+export const SEARCH_DEFAULT_URL = `${SITE_URL}/search?type=image&q=`;
 
 import highlight from './highlight';
 
 export const defaultSuggestion = {
-  description: `Search NPM (e.g. "react" | "webpack")`
+  description: `Search Docker Hub (e.g. "alpine" | "node")`,
 };
 
 export function handleInputChanged(text, addSuggestions) {
@@ -21,15 +23,15 @@ export function handleInputChanged(text, addSuggestions) {
 }
 
 function handleResponse(text, response) {
-  return new Promise(resolve => {
-    response.json().then(json => {
+  return new Promise((resolve) => {
+    response.json().then((json) => {
       const objects = json.objects.slice(0, MAX_RESULTS);
 
       return resolve(
-        objects.map(pkg => {
+        objects.map((image) => {
           return {
-            content: pkg.package.links.npm,
-            description: highlight(pkg.package.name, text)
+            content: `${SITE_URL}/_/${image.name}`, //pkg.package.links.npm,
+            description: highlight(image.name, text), //highlight(pkg.package.name, text)
           };
         })
       );
