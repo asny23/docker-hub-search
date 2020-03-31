@@ -2,62 +2,53 @@ import {
   defaultSuggestion,
   handleInputChanged,
   handleInputEntered,
+  SITE_URL,
   SEARCH_API_URL,
-  SEARCH_DEFAULT_URL
+  SEARCH_DEFAULT_URL,
 } from '../src/omnibox';
 
 describe('omnibox', () => {
   it('should return a default suggestion', () => {
     expect(defaultSuggestion).toMatchObject({
-      description: expect.any(String)
+      description: expect.any(String),
     });
   });
 
   describe('handleInputChanged', () => {
-    it('should return results from the query', done => {
+    it('should return results from the query', (done) => {
       fetch.mockResponse(
         JSON.stringify({
           objects: [
             {
-              package: {
-                name: 'one',
-                links: {
-                  npm: 'https://one'
-                }
-              }
-            }
-          ]
+              name: 'one',
+            },
+          ],
         })
       );
 
-      const callback = function(results) {
+      const callback = function (results) {
         expect(results).toHaveLength(1);
         expect(results[0]).toMatchObject({
           description: 'one',
-          content: 'https://one'
+          content: `${SITE_URL}/_/one`,
         });
         done();
       };
       handleInputChanged('query', callback);
       expect(fetch).toHaveBeenCalled();
     });
-    it('should return limited results', done => {
+    it('should return limited results', (done) => {
       const objects = new Array(10).fill({
-        package: {
-          name: 'x',
-          links: {
-            npm: 'https://x'
-          }
-        }
+        name: 'x',
       });
 
       fetch.mockResponse(
         JSON.stringify({
-          objects: objects
+          objects: objects,
         })
       );
-      const callback = function(results) {
-        expect(results).toHaveLength(5);
+      const callback = function (results) {
+        expect(results).toHaveLength(4);
         done();
       };
       handleInputChanged('query', callback);
@@ -70,7 +61,7 @@ describe('omnibox', () => {
       const query = 'query';
       handleInputEntered(query, 'currentTab');
       expect(chrome.tabs.update).toHaveBeenCalledWith({
-        url: `${SEARCH_DEFAULT_URL}${query}`
+        url: `${SEARCH_DEFAULT_URL}${query}`,
       });
     });
 
@@ -82,7 +73,7 @@ describe('omnibox', () => {
     it('should open in a new foreground tab', () => {
       handleInputEntered(SEARCH_API_URL, 'newForegroundTab');
       expect(chrome.tabs.create).toHaveBeenCalledWith({
-        url: SEARCH_API_URL
+        url: SEARCH_API_URL,
       });
     });
 
@@ -90,7 +81,7 @@ describe('omnibox', () => {
       handleInputEntered(SEARCH_API_URL, 'newBackgroundTab');
       expect(chrome.tabs.create).toHaveBeenCalledWith({
         url: SEARCH_API_URL,
-        active: false
+        active: false,
       });
     });
   });
