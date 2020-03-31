@@ -36,8 +36,8 @@
     "zip": "(cd extension && zip -r ../extension.zip .)"
   },
   "manifest": {
-    "name": "NPM Package Search",
-    "short_name": "NPM Search",
+    "name": "Docker Hub Search",
+    "short_name": "Docker Search",
     "applications": {
       "gecko": {
         "strict_min_version": "52.0a1"
@@ -53,11 +53,11 @@
       ]
     },
     "omnibox": {
-      "keyword": "npm"
+      "keyword": "docker"
     },
     "manifest_version": 2,
     "permissions": [
-      "https://registry.npmjs.org/"
+      "https://hub.docker.com/"
     ]
   },
   "lint-staged": {
