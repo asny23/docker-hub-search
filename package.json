@@ -33,7 +33,7 @@
     "test": "jest",
     "prettier": "prettier --write --single-quote --print-width 80  \"{src,bin,__{tests,setups}__}/**/*.js\" webpack.config.js",
     "release": "release",
-    "zip": "(cd extension && zip -r ../extension.zip .)"
+    "zip": "(cd extension && zip -r ../extension.xpi . -x '*.DS_Store')"
   },
   "manifest": {
     "name": "Docker Hub Search",

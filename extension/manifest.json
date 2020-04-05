@@ -1,14 +1,14 @@
 {
-  "name": "NPM Package Search",
-  "short_name": "NPM Search",
+  "name": "Docker Hub Search",
+  "short_name": "Docker Search",
   "applications": {
     "gecko": {
       "strict_min_version": "52.0a1"
     }
   },
   "icons": {
-    "16": "icons/npm-16.png",
-    "64": "icons/npm-64.png"
+    "16": "icons/docker-16.png",
+    "64": "icons/docker-64.png"
   },
   "background": {
     "scripts": [
@@ -16,14 +16,14 @@
     ]
   },
   "omnibox": {
-    "keyword": "npm"
+    "keyword": "docker"
   },
   "manifest_version": 2,
   "permissions": [
-    "https://registry.npmjs.org/"
+    "https://hub.docker.com/"
   ],
-  "author": "Bryan Clark <clarkbw@gmail.com> (http://twitter.com/clarkbw)",
+  "author": "Yun Asny23 <asny23+github@gmail.com>",
   "version": "1.0.0",
-  "description": "To use, type 'npm' plus your search term into the url bar.",
-  "homepage_url": "https://github.com/clarkbw/npm-package-search"
+  "description": "To use, type 'docker' plus your search term into the url bar.",
+  "homepage_url": "https://github.com/asny23/docker-hub-search"
 }
