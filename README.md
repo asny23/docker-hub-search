@@ -1,19 +1,18 @@
-## NPM Package Search
+# Docker Hub Search
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/clarkbw/npm-package-search.svg)](https://greenkeeper.io/)
+forked from [clarkbw/npm-package-search](https://github.com/clarkbw/npm-package-search)
 
-[Chrome](https://chrome.google.com/webstore/detail/npm-package-search/opeblfahbafpdgaiadfdcefgdhegdnch) | [Firefox](https://addons.mozilla.org/addon/npm-package-search/)
----|---
+![howtouse](https://user-images.githubusercontent.com/28535536/77992428-002a1000-7361-11ea-9f71-ae7834de570d.gif)
 
-![](http://g.recordit.co/3TKjLGuQJP.gif)
+A WebExtension that uses the keyword `docker` to trigger a search of the Docker images in Docker Hub.
 
-A WebExtension that uses the keyword `npm` to trigger a search of the packages in the NPM registry.
 
-<img width="1271" alt="screen shot 2017-03-29 at 3 57 47 pm" src="https://cloud.githubusercontent.com/assets/2134/24476349/9a763bbe-1498-11e7-95f4-095f103cc9b5.png">
+## Development
 
-![screen shot 2017-03-29 at 3 58 29 pm](https://cloud.githubusercontent.com/assets/2134/24476346/98b8a334-1498-11e7-84c2-a14160e47edf.png)
-
-### Development
+Requirements:
+- MacOS 10.15.4
+- Node.js 12.14.0
+- yarn 1.22.0
 
 Here's how you can get setup to develop.
 
@@ -22,12 +21,19 @@ yarn install
 yarn run build:watch
 ```
 
+To generate extension xpi
+
+```bash
+yarn run build
+```
+
 Here are some example results from the MDN Search.
 
-* yarn-lock search: https://registry.npmjs.org/-/v1/search/?text=yarn-lock
+* alpine search: https://registry.hub.docker.com/v1/search?q=alpine
 
 Follow the instructions for developing [WebExtensions](https://developer.mozilla.org/en-US/Add-ons/WebExtensions).
 
-### License
+
+## License
 
 MPL v2
